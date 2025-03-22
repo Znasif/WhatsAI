@@ -1,4 +1,4 @@
-# whatsAI - Agentic GenAI Interface with Google Gemini
+# WhatsAI - Agentic GenAI Interface with Google Gemini for Blind Users
 
 ## Overview
 whatsAI is an AI-powered interactive assistant designed for blind and low-vision users, leveraging Google Gemini and Meta Ray-Ban smart glasses. The system enables hands-free interaction with real-world objects using finger counting gestures to dynamically guide the AI's responses.
@@ -48,14 +48,11 @@ pip install google-genai opencv-python pyaudio pillow mss dotenv
 ```
 
 ### Setup
-Ensure you have a Google Gemini API key set as an environment variable:
-```
-export GEMINI_API_KEY='your_api_key_here'
-```
+Ensure you have a Google Gemini API key set as an environment variable in the .env file.
 
 ### Run the Application
 ```
-python whatsAI.py
+python gemini_live.py
 ```
 
 ## Team
