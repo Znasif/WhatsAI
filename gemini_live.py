@@ -93,7 +93,7 @@ QUESTIONS = [
 # Build the full audio prompt based on finger count
 def build_audio_prompt(finger_count):
     if finger_count == 0:
-        return "Keep all responses extremely short and to the point. Continue with the last question but based on this new scene."
+        return "Forget all past context. Keep all responses extremely short and to the point. What's being pointed to?"
     elif finger_count > 5:
         # More than 5 fingers, use question 3
         return "Keep all responses extremely short and to the point. " + QUESTIONS[0]
@@ -159,14 +159,7 @@ class AgenticAudioLoop:
                             print(f"Detected {finger_count} fingers")
                             
                             # Build the appropriate audio prompt
-                            if finger_count == 0:
-                                prompt = "Continue with the last question but based on this new scene."
-                            elif finger_count > 5:
-                                self.last_question = QUESTIONS[2]  # Question 3 for >5 fingers
-                                prompt = self.last_question
-                            else:
-                                self.last_question = QUESTIONS[finger_count - 1]
-                                prompt = self.last_question
+                            prompt = build_audio_prompt(finger_count)
                             
                             # Wait for previous audio output to complete
                             #await self.audio_output_complete.wait()
